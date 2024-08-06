@@ -75,7 +75,7 @@ def welcome(event):
     gid = event.source.group_id
     profile = line_bot_api.get_group_member_profile(gid, uid)
     name = profile.display_name
-    message = TextSendMessage(text=f'{name}歡迎加入')
+    message = TextSendMessage(text=f'HI, {name} ! 我是小百萬機器人，很高興你要問我問題')
     line_bot_api.reply_message(event.reply_token, message)
         
         
