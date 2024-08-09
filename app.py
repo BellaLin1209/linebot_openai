@@ -56,6 +56,7 @@ def callback():
 def handle_message(event):
     msg = event.message.text
     try:
+        line_bot_api.reply_message(event.reply_token, TextSendMessage('hello'))
         mm=Coupang()
         print (mm)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(mm))
@@ -64,7 +65,7 @@ def handle_message(event):
         # print(GPT_answer)
         # line_bot_api.reply_message(event.reply_token, TextSendMessage(GPT_answer))
     except:
-         line_bot_api.reply_message(event.reply_token, TextSendMessage('小百萬已累累~充電中! 稍後再問我喔!'))
+         line_bot_api.reply_message(event.reply_token, TextSendMessage('小百萬已累累~充電中! 稍後再問我喔~'))
         # print(traceback.format_exc())
         # line_bot_api.reply_message(event.reply_token, TextSendMessage('小百萬已累累~充電中! 稍後再問我喔!'))
         
