@@ -51,11 +51,9 @@ def handle_message(event):
     msg = event.message.text
     if '尿布' in msg:
         try:
-            line_bot_api.reply_message(event.reply_token, TextSendMessage('hello'))
             mm = coupang.Coupang()
-            print(mm)
             line_bot_api.reply_message(event.reply_token, TextSendMessage(mm))
-
+            line_bot_api.reply_message(event.reply_token, TextSendMessage('hello'))
             # GPT_answer = GPT_response(msg)
             # print(GPT_answer)
             # line_bot_api.reply_message(event.reply_token, TextSendMessage(GPT_answer))
