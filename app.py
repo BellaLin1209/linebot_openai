@@ -15,7 +15,10 @@ line_bot_api = LineBotApi(os.getenv('CHANNEL_ACCESS_TOKEN'))
 # Channel Secret
 handler = WebhookHandler(os.getenv('CHANNEL_SECRET'))
 # OPENAI API Key初始化設定
-openai.api_key = os.getenv('OPENAI_API_KEY')
+# openai.api_key = os.getenv('OPENAI_API_KEY')
+
+mm = coupang.Coupang()
+line_bot_api.push_message(event.reply_token, TextSendMessage(mm))
 
 
 def GPT_response(text):
@@ -53,7 +56,6 @@ def handle_message(event):
         try:
             mm = coupang.Coupang()
             line_bot_api.reply_message(event.reply_token, TextSendMessage(mm))
-            line_bot_api.reply_message(event.reply_token, TextSendMessage('hello'))
             # GPT_answer = GPT_response(msg)
             # print(GPT_answer)
             # line_bot_api.reply_message(event.reply_token, TextSendMessage(GPT_answer))

@@ -42,15 +42,12 @@ def Coupang():
 
     dict_Arr = sorted(dict_Arr, key=lambda x: x['單價'])
 
-    message = f"\n｜百萬現在尺寸: {size} , 用量:{ManyPerDay}片/天｜\n"
+    message = f"\n｜百萬現在尺寸: {size} , 用量:{ManyPerDay}片/天｜"
 
-    message += (
-        f"\n平台：{Website}\n項目：{Keyword}\n目前最低價前三名是\n--------------------------\n"
-    )
+    message += f"\n平台：{Website}\n項目：{Keyword}\n\n目前最低價 ${dict_Arr[0]["單價"]}\n\n--------------------------\n"
     for i in range(0, 3):
 
         howlong2use = int(float(dict_Arr[i]["總片數"]) / float(ManyPerDay))
-        message += f'第{i + 1}名    單片${dict_Arr[i]["單價"]}\n【{dict_Arr[i]["廠牌"]}】\n${dict_Arr[i]["價格"]} 共{dict_Arr[i]["總片數"]}片（能用:{howlong2use}天）\n--------------------------\n'
+        message += f'第{i+1}名    單片${dict_Arr[i]["單價"]}\n【{dict_Arr[i]["廠牌"]}】\n${dict_Arr[i]["價格"]} 共{dict_Arr[i]["總片數"]}片（能用:{howlong2use}天）\n--------------------------\n'
     # message += '--------------------------'
     return message
-    # print(message)
